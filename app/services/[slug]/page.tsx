@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
+import { ServiceHeroVisual } from '@/components/sections/service-hero-visual';
+
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const service = services.find((s) => s.slug === slug);
@@ -36,18 +38,25 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     return (
         <>
             {/* Hero */}
-            <section className="relative py-32 md:py-48 bg-navy overflow-hidden">
+            <section className="relative min-h-[60vh] flex items-center bg-navy overflow-hidden py-32 md:py-48">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-charcoal via-navy to-navy opacity-80" />
                 <div className="container mx-auto px-4 relative z-10">
-                    <Link href="/services" className="inline-block mb-8 text-gold text-sm uppercase tracking-widest hover:text-white transition-colors">
-                        ← Back to Protocols
-                    </Link>
-                    <h1 className="text-5xl md:text-7xl font-display text-ivory mb-6 max-w-4xl">
-                        {service.title}
-                    </h1>
-                    <p className="text-xl text-slate font-light max-w-2xl leading-relaxed">
-                        {service.fullDescription}
-                    </p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <Link href="/services" className="inline-block mb-8 text-gold text-sm uppercase tracking-widest hover:text-white transition-colors">
+                                ← Back to Protocols
+                            </Link>
+                            <h1 className="text-5xl md:text-7xl font-display text-ivory mb-6">
+                                {service.title}
+                            </h1>
+                            <p className="text-xl text-slate font-light leading-relaxed max-w-xl">
+                                {service.fullDescription}
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <ServiceHeroVisual slug={slug} />
+                        </div>
+                    </div>
                 </div>
             </section>
 
