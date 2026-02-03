@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { ContactCTA } from '@/components/sections/contact-cta';
 import { FacilityDetails } from '@/components/sections/facility-details';
@@ -34,7 +35,16 @@ export default function AboutPage() {
         <>
             {/* Hero */}
             <section className="relative h-[60vh] flex items-center justify-center bg-navy overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy z-10" />
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/about-hero.png"
+                        alt="Adare Clinic Interior"
+                        fill
+                        className="object-cover opacity-60"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy z-10" />
+                </div>
                 <div className="container mx-auto px-4 relative z-20 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -74,8 +84,12 @@ export default function AboutPage() {
                             </div>
                         </div>
                         <div className="relative h-96 bg-charcoal rounded-sm overflow-hidden border border-white/5">
-                            {/* Placeholder for facility image */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent opacity-50" />
+                            <Image
+                                src="/images/about-facility.png"
+                                alt="State of the art facility"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
                     </div>
                 </div>

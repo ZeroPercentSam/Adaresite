@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { ContactCTA } from '@/components/sections/contact-cta';
 import { menAvatars } from '@/lib/avatars';
@@ -16,8 +17,18 @@ const maleFocus = [
 export default function ForMenPage() {
     return (
         <>
-            <section className="relative py-32 bg-navy text-center">
-                <div className="container mx-auto px-4">
+            <section className="relative py-32 bg-navy text-center overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/men-hero.png"
+                        alt="Adare Men's Health"
+                        fill
+                        className="object-cover opacity-60"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-navy/80 z-10" />
+                </div>
+                <div className="container mx-auto px-4 relative z-20">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

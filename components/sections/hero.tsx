@@ -2,16 +2,23 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export function Hero() {
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-navy">
             {/* Background with overlay */}
+            {/* Background with overlay */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/60 to-navy z-10" />
-                {/* Placeholder for video/image - using a subtle animated gradient for now */}
-                <div className="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-charcoal via-navy to-navy opacity-80" />
+                <Image
+                    src="/images/home-hero.png"
+                    alt="Adare Clinic Atmosphere"
+                    fill
+                    className="object-cover opacity-60"
+                    priority
+                />
             </div>
 
             <div className="relative z-10 container mx-auto px-4 text-center">

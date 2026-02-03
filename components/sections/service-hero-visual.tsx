@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { services } from '@/lib/data';
 
 interface ServiceHeroVisualProps {
@@ -22,24 +23,32 @@ export function ServiceHeroVisual({ slug }: ServiceHeroVisualProps) {
             className="hidden lg:flex justify-center items-center relative w-full h-full min-h-[400px]"
         >
             {/* Abstract Glowing Background */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-                className="absolute inset-0 bg-gold/5 blur-[80px] rounded-full"
-            />
+            <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                <Image
+                    src="/images/home-hero.png"
+                    alt="Service Visual"
+                    fill
+                    className="object-cover opacity-40 mix-blend-overlay"
+                />
+                <motion.div
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute inset-0 bg-gold/5 blur-[80px] rounded-full"
+                />
+            </div>
 
             {/* The Mega Icon */}
             <div className="relative z-10">
                 <Icon
                     strokeWidth={0.5}
-                    className="w-[400px] h-[400px] text-ivory/10 drop-shadow-2xl"
+                    className="w-[400px] h-[400px] text-ivory/20 drop-shadow-2xl"
                 />
 
                 {/* Overlay for "metallic" shine effect (optional, keeping simple for now) */}
